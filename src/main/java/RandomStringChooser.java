@@ -1,8 +1,22 @@
-import java.util.*;
-public class RandomStringChooser
-{
-  /* to be implemented in part (a) */
-  
-  //Heads up! 
-  //You will get a very confusing error message until you have working code in part b as well
+import java.util.ArrayList;
+
+public class RandomStringChooser {
+
+    private ArrayList<String> wordList;
+
+    public RandomStringChooser( String[] words ) {
+        wordList = new ArrayList<>();
+
+        for ( String word : words ) {
+            wordList.add( word );
+        }
+    }
+
+    public String getNext() {
+        if ( wordList.size() == 0 ) {
+            return "NONE";
+        }
+        int rnd = (int)(Math.random() * wordList.size());        
+        return wordList.remove( rnd );        
+    }
 }
